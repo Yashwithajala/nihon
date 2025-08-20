@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>にほんごのふれーず (Japanese Phrases)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f9f6ee; --paper:#fcf7ef; --card:#fff7ee;
+      --ink:#533e29; --accent:#983d26; --muted:#7d6651;
+      --shadow:0 6px 18px rgba(180,170,140,.16);
+      --shadow-card:0 4px 12px rgba(160,140,100,.10);
+      --radius:16px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:var(--bg); color:var(--ink);
+      font-family:'Noto Sans JP', Arial, sans-serif;
+      line-height:1.6;
+    }
+
+    header{
+      text-align:center; background:var(--paper);
+      padding:28px 14px 20px; border-bottom:1px solid #eadfcd;
+    }
+    header h1{
+      margin:0; font-family:'Noto Serif JP', serif; letter-spacing:.08em;
+      color:var(--accent); font-size:clamp(1.6rem, 2.8vw, 2.2rem);
+      font-weight:600;
+    }
+    .romaji{font-family:serif; font-size:.9rem; color:var(--muted); margin-left:.25rem}
+
+    .page-banner{
+      display:block; width:min(1000px, 92vw); max-height:300px;
+      object-fit:cover; margin:18px auto 26px; border-radius:20px; box-shadow:var(--shadow)
+    }
+
+    .phrase-cards{
+      width:min(1100px, 94vw); margin:0 auto 40px; display:grid;
+      grid-template-columns: repeat(5, 1fr); gap:22px;
+    }
+
+    .phrase-card{
+      background:var(--card); border-radius:var(--radius);
+      box-shadow:var(--shadow-card); padding:18px 14px 20px;
+      text-align:center; transition:.18s transform, .18s box-shadow;
+    }
+    .phrase-card:hover{
+      transform:translateY(-6px); box-shadow:0 8px 22px rgba(160,140,100,.20);
+    }
+
+    .phrase-card h2{
+      font-family:'Noto Serif JP', serif; color:var(--accent);
+      font-size:clamp(1.1rem, 2.1vw, 1.35rem); margin:.2rem 0 .4rem; letter-spacing:.05em
+    }
+    .phrase-card .romaji{display:block; font-size:.85rem}
+
+    .phrase-card p{
+      margin:0; color:#6d5742; font-size:clamp(.95rem, 2.2vw, 1rem)
+    }
+
+    /* Responsive grid breakpoints */
+    @media (max-width:1000px){
+      .phrase-cards{grid-template-columns: repeat(3, 1fr)}
+    }
+    @media (max-width:700px){
+      .phrase-cards{grid-template-columns: repeat(2, 1fr)}
+      .page-banner{max-height:220px}
+    }
+    @media (max-width:480px){
+      .phrase-cards{grid-template-columns: 1fr}
+      .page-banner{max-height:160px}
+      header{padding:22px 10px 16px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>にほんごのふれーず <span class="romaji">(Japanese Phrases)</span></h1>
+  </header>
+
+  <main>
+    <section>
+      <img src="https://i.pinimg.com/736x/96/60/49/966049e1696b4ea5a3de68e7cd341a34.jpg"
+           alt="Japanese writing" class="page-banner">
+    </section>
+
+    <section class="phrase-cards">
+      <div class="phrase-card">
+        <h2>こんにちは <span class="romaji">Konnichiwa</span></h2>
+        <p>Hello / Good afternoon</p>
+      </div>
+      <div class="phrase-card">
+        <h2>ありがとう <span class="romaji">Arigatou</span></h2>
+        <p>Thank you</p>
+      </div>
+      <div class="phrase-card">
+        <h2>ごめんなさい <span class="romaji">Gomen nasai</span></h2>
+        <p>Sorry</p>
+      </div>
+      <div class="phrase-card">
+        <h2>すみません <span class="romaji">Sumimasen</span></h2>
+        <p>Excuse me</p>
+      </div>
+      <div class="phrase-card">
+        <h2>さようなら <span class="romaji">Sayōnara</span></h2>
+        <p>Goodbye</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

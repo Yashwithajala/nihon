@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>あにめ (Anime)</title>
+    <style>body {
+    margin: 0;
+    background: #f9f6ee;
+    font-family: 'Noto Sans JP', Arial, sans-serif;
+    color: #533e29;
+    line-height: 1.5;
+}
+
+header {
+    text-align: center;
+    padding: 32px 0 18px;
+    background: #fcf7ef;
+    border-bottom: 1px solid #eadfcd;
+}
+
+header h1 {
+    font-family: 'Noto Serif JP', serif;
+    color: #983d26;
+    font-size: 2.2rem;
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+header .romaji {
+    font-family: serif;
+    font-size: 0.85rem;
+    color: #7d6651;
+    margin-left: 5px;
+}
+
+.page-banner {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(180, 170, 140, 0.18);
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    padding: 0 10px;
+}
+
+.card {
+    background: #fff7ee;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(160, 140, 100, 0.1);
+    width: 300px;
+    padding: 20px 14px 26px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(160, 140, 100, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 18px;
+}
+
+.card h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.4rem;
+    color: #983d26;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+}
+
+.card h2 .romaji {
+    display: block;
+    font-size: 1rem;
+    margin-top: 4px;
+    font-family: serif;
+    color: #7d6651;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #6d5742;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1040px) {
+    .cards {
+        gap: 18px;
+    }
+    .card {
+        width: 48%;
+    }
+}
+
+@media (max-width: 650px) {
+    .page-banner {
+        max-height: 220px;
+        margin-bottom: 24px;
+    }
+    .card {
+        width: 100%;
+        padding: 18px 12px 22px;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+    header .romaji {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    .card img {
+        height: 150px;
+    }
+    .card h2 {
+        font-size: 1.2rem;
+    }
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>あにめ <span class="romaji">(Anime)</span></h1>
+    </header>
+    <main>
+        <section>
+            <img src="https://i.pinimg.com/1200x/48/e4/ab/48e4ab62cecac8811ae2b9831496072c.jpg" alt="anime banner" class="page-banner">
+        </section>
+        <section class="cards">
+            <div class="card">
+                <img src="https://i.pinimg.com/1200x/b8/c6/5b/b8c65bfc58be182ec49698836a30a142.jpg" alt="Death Note">
+                <h2>デスノート<br><span class="romaji">Death Note</span></h2>
+                <p>心理スリラーあにめの名作</p>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/89/50/a1/8950a168a4c8d5536c4f4dcc9d0ce26c.jpg" alt="Jujutsu Kaisen">
+                <h2>呪術廻戦<br><span class="romaji">Jujutsu Kaisen</span></h2>
+                <p>人気の霊能力バトルあにめ</p>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/1200x/a2/c9/35/a2c9355cfb9a31c9207e43427a83c9a1.jpg" alt="Demon Slayer">
+                <h2>鬼滅の刃<br><span class="romaji">Kimetsu no Yaiba</span></h2>
+                <p>最近のヒットあにめ</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

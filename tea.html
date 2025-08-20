@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ちゃどう UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#efe7da; --paper:#f6efe4; --ink:#2d2a27; --muted:#7b726a;
+      --card-shadow:0 8px 20px rgba(0,0,0,.06); --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink)}
+    img{display:block;max-width:100%;height:auto;border-radius:12px}
+
+    .wrap{max-width:960px;margin:auto;padding:20px}
+    header.wrap{display:flex;align-items:center;gap:12px;justify-content:space-between;padding-top:28px; flex-wrap:wrap;}
+    .title-kanji{font-family:"Noto Serif JP",serif;font-size:48px;letter-spacing:.06em;margin:0}
+    .top-note{font-family:"Noto Sans JP",sans-serif;color:var(--muted);font-size:14px}
+    .toggle{border:none;background:#ddd2c3;color:#524a43;padding:8px 12px;border-radius:10px;cursor:pointer;font-size:17px;}
+
+    .card{background:var(--paper);border-radius:var(--radius);padding:22px;box-shadow:var(--card-shadow);margin:18px 0}
+    .hero{padding:14px}
+
+    .section-title{font-family:"Noto Serif JP",serif;text-align:center;margin:8px 0 18px;font-size:22px}
+
+    .tools .tool-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+    .tool{display:flex;flex-direction:column;align-items:center;gap:8px}
+    .icon{width:88px;height:64px;border-radius:12px;display:grid;place-items:center;}
+    .placeholder{background:#ddd2c3;color:#5b5149;border:1px solid #c8b9a3}
+    .label{font-family:"Noto Sans JP",sans-serif;font-size:13px;color:#544c44}
+
+    .history .body{font-family:"Noto Sans JP",sans-serif;color:#4b453f;line-height:1.9;letter-spacing:.02em}
+
+    footer.small{text-align:center;color:var(--muted);font-family:"Noto Sans JP",sans-serif;padding-bottom:36px}
+
+    /* Tablet adjustments */
+    @media (max-width:820px){
+      .title-kanji{font-size:36px}
+      .tools .tool-grid{grid-template-columns:repeat(2,1fr)}
+      header.wrap{padding-top:16px;}
+    }
+    /* Smartphone optimizations */
+    @media (max-width:500px){
+      body, html { font-size: 15px; }
+      .wrap{padding:8px}
+      header.wrap{flex-direction:column;gap:7px;padding-top:10px;text-align:center;}
+      .title-kanji{font-size:25px;}
+      .top-note{font-size:13px;}
+      .toggle{font-size:15px;padding:6px 10px;margin-top:5px;}
+      .section-title{font-size:17px;}
+      .history .body{font-size:14px;}
+      .tools .tool-grid{grid-template-columns:1fr;gap:13px}
+      .tool{font-size:14px;}
+      .icon{width:70px;height:54px;}
+      .card { padding: 10px; }
+      img { border-radius: 10px; }
+      footer.small {font-size:13px;}
+    }
+  </style>
+</head>
+<body data-script="hiragana">
+  <header class="wrap">
+    <h1 class="title-kanji" data-hira="ちゃどう" data-kata="チャドウ">ちゃどう(Sadō)</h1>
+    <div class="top-note" data-hira="わび・さび・しずけさ" data-kata="ワビ・サビ・シズケサ">わび・さび・しずけさ</div>
+    <button id="toggle" class="toggle">カタカナ</button>
+  </header>
+
+  <main class="wrap">
+    <section class="hero card">
+      <img src="https://i.pinimg.com/1200x/c1/83/de/c183deb0a4afcea26e2cc99e41ea4e62.jpg" alt="ちゃどうのどうぐのしゃしん">
+    </section>
+
+    <section class="tools card">
+      <h2 class="section-title" data-hira="ちゃどうのどうぐ" data-kata="チャドウノドウグ">ちゃどうのどうぐ(tools)</h2>
+      <div class="tool-grid">
+        <div class="tool">
+          <div class="icon placeholder"><img src="https://i.pinimg.com/1200x/1c/8c/18/1c8c1872d7b41e58b585f81399cc5cad.jpg" alt="tool1"> </div><br>
+          <div class="label" data-hira="つぼ" data-kata="ツボ">つぼ(vessel)</div>
+        </div>
+        <div class="tool">
+          <div class="icon placeholder"><img src="https://i.pinimg.com/1200x/8a/36/63/8a3663d310e35b0d980d1bfeedc88b33.jpg" alt="tool2"></div><br>
+          <div class="label" data-hira="ちゃわん" data-kata="チャワン">ちゃわん(bowl)</div>
+        </div>
+        <div class="tool">
+          <div class="icon placeholder"><img src="https://i.pinimg.com/1200x/eb/b5/01/ebb5019a999d851f39117530148d9e55.jpg" alt="tool3"> </div><br>
+          <div class="label" data-hira="ちゃせん" data-kata="チャセン">ちゃせん(whisker)</div>
+        </div>
+        <div class="tool">
+          <div class="icon placeholder"><img src="https://i.pinimg.com/1200x/fb/44/11/fb44116e424afd35960fad491ac20622.jpg" alt="tool4"> </div><br>
+          <div class="label" data-hira="ちゃしゃく" data-kata="チャシャク">ちゃしゃく(tea scoop)</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="history card">
+      <h2 class="section-title" data-hira="ちゃにわのれきし" data-kata="チャニワノレキシ">ちゃどうについて</h2>
+      <p class="body">
+        The tea ceremony is known as chanoyu, or sado, in Japanese, and the art and performance of preparing and presenting matcha powdered green tea is called otemae. Chakai are informal gatherings held to appreciate the ritualized serving of tea, while the more formal occasion is a chaji. An alternative, but less common, version of the ceremony uses tea leaves and is known as senchado.
+      </p>
+    </section>
+  </main>
+
+  <footer class="wrap small">
+    <span data-hira="© 2025 ちゃのゆ すたじお" data-kata="© 2025 チャノユ スタジオ">© 2025 ちゃのゆ すたじお</span>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('toggle');
+    const switchMode = () => {
+      const isHira = document.body.dataset.script === 'hiragana';
+      document.body.dataset.script = isHira ? 'katakana' : 'hiragana';
+      btn.textContent = isHira ? 'ひらがな' : 'カタカナ';
+      document.querySelectorAll('[data-hira]').forEach(el=>{
+        el.textContent = isHira ? el.dataset.kata : el.dataset.hira;
+      });
+    };
+    btn.addEventListener('click', switchMode);
+  </script>
+</body>
+</html>

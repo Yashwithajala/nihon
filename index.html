@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Japanese Culture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #f9f6ee;
+      --paper: #fcf7ef;
+      --card: #fff7ee;
+      --ink: #533e29;
+      --accent: #983d26;
+      --muted: #7d6651;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Serif JP', 'Yu Mincho', serif;
+    }
+
+    /* Header */
+    .site-header {
+      background: var(--paper);
+      border-bottom: 1px solid #eadfcd;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 22px;
+    }
+    *{
+        scroll-behavior: smooth;
+    }
+    .brand {
+      font-size: 2em;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: .08em;
+      font-family: 'Noto Serif JP', serif;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .nav-list, .dropdown-menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 1.08em;
+    }
+
+    .nav-list > li {
+      margin-left: 30px;
+      position: relative;
+    }
+
+    .nav-list > li:first-child {
+      margin-left: 0;
+    }
+
+    .nav-list a, .nav-list button {
+      color: var(--accent);
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1em;
+      padding: 2px 8px;
+      font-family: inherit;
+    }
+
+    .dropdown-menu {
+      flex-direction: column;
+      position: absolute;
+      top: 110%;
+      left: 0;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(80,70,60,0.13);
+      min-width: 170px;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.2s all;
+      z-index: 100;
+    }
+
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .dropdown-menu a {
+      color: var(--ink);
+      
+      white-space: nowrap;
+      border-radius: 7px;
+    }
+
+    .dropdown-menu a:hover {
+      background: #f9ece3;
+      color: var(--accent);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 34px;
+      height: 34px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 101;
+    }
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: var(--accent);
+      border-radius: 3px;
+    }
+
+    /* Mobile Nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0; right: 0;
+      background: var(--paper);
+      box-shadow: 0 6px 18px rgba(180,170,140,.13);
+      z-index: 202;
+      padding: 48px 22px 22px 22px;
+      min-height: 100vh;
+      animation: slideDown .3s;
+    }
+    @keyframes slideDown {
+      from {opacity: 0; transform: translateY(-40px);}
+      to {opacity:1; transform: translateY(0);}
+    }
+    .mobile-nav ul {
+      list-style: none;
+      padding: 0; margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .mobile-nav a, .mobile-nav button {
+      color: var(--accent);
+      font-size: 1.25em;
+      background: none;
+      border: none;
+      text-align: left;
+      text-decoration: none;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .mobile-dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .2s;
+      flex-direction: column;
+      gap: 8px;
+      padding-left: 18px;
+    }
+    .mobile-dropdown.open .mobile-dropdown-content {
+      max-height: 500px;
+      margin: 0 0 8px 0;
+    }
+
+    /* Hero */
+    .hero-img {
+      width: 100%;
+      max-height: 390px;
+      object-fit: cover;
+      margin: 0 0 20px 0;
+      border-radius: 0 0 14px 14px;
+      box-shadow: 0 5px 18px rgba(180,170,140,0.10);
+    }
+
+    /* Features */
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 28px;
+      max-width: 1200px;
+      margin: 24px auto 0 auto;
+      padding: 0 12px 56px 12px;
+    }
+
+    .feature {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 28px 16px 22px 16px;
+      box-shadow: 0 4px 12px rgba(160,140,100,0.08);
+      text-align: center;
+      width: 220px;
+      transition: transform .15s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .feature:hover {
+      transform: translateY(-6px) scale(1.03);
+    }
+    .feature h2 {
+      font-size: 1.18em;
+      color: #983d26;
+      margin-top: 0;
+      margin-bottom: 14px;
+      letter-spacing: 0.06em;
+      font-family: 'Noto Serif JP', serif;
+    }
+    .subtitle {
+      font-family: serif;
+      font-size: 0.91em;
+      color: #846653;
+      letter-spacing: 0.024em;
+    }
+    .feature-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(180,160,120,0.11);
+    }
+    .read-more {
+      margin-top: 12px;
+      display: inline-block;
+      font-size: 1em;
+      color: #983d26;
+      text-decoration: none;
+      border-bottom: 2px solid #983d26;
+      padding-bottom: 2px;
+      letter-spacing: 0.03em;
+      transition: color .15s;
+    }
+    .read-more:hover { color: #732919; }
+
+    /* About and Contact sections */
+    .about, .contact {
+      max-width: 1200px;
+      margin: 48px auto 40px auto;
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(160,140,100,0.08);
+      padding: 32px 24px;
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #533e29;
+      line-height: 1.6;
+    }
+    .about h2, .contact h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.6em;
+      color: var(--accent);
+      margin-top: 0;
+      margin-bottom: 16px;
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+      .feature {
+        width: 90%;
+        margin-bottom: 32px;
+      }
+      .about, .contact {
+        margin: 32px 12px 24px 12px;
+        padding: 24px 16px;
+      }
+    }
+    /* Other media queries omitted for brevity, keep existing from original */
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-container">
+      <a class="brand" href="#">JAPANESE CULTURE</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="#">Home</a></li>
+          <li class="dropdown">
+            <button aria-haspopup="true" aria-expanded="false">Explore ▼</button>
+            <ul class="dropdown-menu">
+              <li><a href="nihongo.html" target="_blank">Few Japanese Phrases</a></li>
+              <li><a href="tea.html" target="_blank">Tea Ceremony</a></li>
+              <li><a href="#" target="_blank">Kimono</a></li>
+              <li><a href="yumeiplaces.html" target="_blank">Famous Places</a></li>
+              <li><a href="anime.html" target="_blank">Anime</a></li>
+            </ul>
+          </li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="navToggle" aria-label="Menu" aria-controls="mobileNav" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Menu" tabindex="-1" style="display: none;">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li class="mobile-dropdown">
+          <button aria-controls="mobileExplore" aria-expanded="false" class="mobile-dropdown-btn">Explore ▼</button>
+          <div class="mobile-dropdown-content" id="mobileExplore">
+            <a href="nihongo.html" target="_blank">Few Japanese Phrases</a>
+            <a href="tea.html" target="_blank">Tea Ceremony</a>
+            <a href="#" target="_blank">Kimono</a>
+            <a href="yumeiplaces.html" target="_blank">Famous Places</a>
+            <a href="anime.html" target="_blank">Anime</a>
+          </div>
+        </li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Optional hero art / banner -->
+  <img class="hero-img pagoda" src="https://i.pinimg.com/1200x/da/37/6b/da376bbd323620af788603d53f13f8a8.jpg" alt="pagoda and sun banner">
+  <main>
+    <section class="features">
+      <div class="feature">
+        <h2>芸術<br><span class="subtitle">Few Japanese Phrases</span></h2>
+        <img src="https://i.pinimg.com/1200x/31/1c/98/311c9811c23c352ed17ed25ae96b2e29.jpg" alt="Japanese arts scroll" class="feature-img">
+        <a href="nihongo.html" target="_blank" class="read-more">Know more</a>
+      </div>
+      <div class="feature">
+        <h2>茶道<br><span class="subtitle">Tea Ceremony</span></h2>
+        <img src="https://i.pinimg.com/736x/ad/54/7c/ad547c1fc1849bdf32ca7aff75b556fd.jpg" alt="Japanese tea ceremony" class="feature-img">
+        <a href="tea.html" target="_blank" class="read-more">Read More</a>
+      </div>
+      <div class="feature">
+        <h2>着物<br><span class="subtitle">Kimono</span></h2>
+        <img src="https://i.pinimg.com/1200x/3a/3c/d9/3a3cd9f43b887a458917f61c49ed0cf9.jpg" alt="Kimono woman" class="feature-img">
+        <a href="#" target="_blank" class="read-more">Read More</a>
+      </div>
+      <div class="feature">
+        <h2>着物<br><span class="subtitle">Famous Places</span></h2>
+        <img src="https://i.pinimg.com/1200x/0f/07/a6/0f07a6543c95406223aaf6c5b28be6e3.jpg" alt="Famous Japanese place" class="feature-img">
+        <a href="yumeiplaces.html" target="_blank" class="read-more">Read More</a>
+      </div>
+      <div class="feature">
+        <h2>着物<br><span class="subtitle">Anime</span></h2>
+        <img src="https://i.pinimg.com/1200x/64/61/3e/64613e8d9d8c234ce4265ae13874b08d.jpg" alt="Anime art" class="feature-img">
+        <a href="anime.html" target="_blank" class="read-more">Read More</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <h2>このサイトについて (About)</h2>
+      <p>
+        This website introduces Japanese traditions, tea ceremony, some phases, anime ,places, in both English and simple Japanese. <br><br>
+        <strong>つくったひと (Created by):</strong> yashwithavs...
+      </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <h2>れんらく (Contact)</h2>
+      <p>
+        ごいけん・ごしつもんがあれば、メールでごれんらくください。<br>
+        For questions or feedback, please email: <a href="mailto:your.yashwithavs@gmail.com" style="color:#983d26;">yashwithavs@gmail.com</a>
+      </p>
+    </section>
+  </main>
+  <script>
+    // Hamburger menu open/close
+    const navToggle = document.getElementById('navToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    navToggle.addEventListener('click', () => {
+      const opened = mobileNav.style.display === 'block';
+      mobileNav.style.display = opened ? 'none' : 'block';
+      navToggle.setAttribute('aria-expanded', String(!opened));
+      document.body.style.overflow = opened ? '' : 'hidden';
+    });
+
+    // Mobile Explore accordion
+    document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        let content = btn.nextElementSibling;
+        let opened = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!opened));
+        btn.parentElement.classList.toggle('open');
+      });
+    });
+
+    // Close mobile nav on outside click
+    document.addEventListener('click', e => {
+      if (!mobileNav.contains(e.target) && !navToggle.contains(e.target)) {
+        mobileNav.style.display = 'none';
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    }, true);
+
+    // Keyboard navigation for desktop dropdown
+    document.querySelectorAll('.dropdown > button').forEach(btn=>{
+      btn.addEventListener('focus', ()=>{
+        btn.parentElement.classList.add('focus');
+      });
+      btn.addEventListener('blur', ()=>{
+        btn.parentElement.classList.remove('focus');
+      });
+    });
+  </script>
+</body>
+</html>

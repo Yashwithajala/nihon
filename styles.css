@@ -1,0 +1,112 @@
+body {
+    background: #f9f6ee;
+    margin: 0;
+    font-family: 'Noto Sans JP', Arial, sans-serif;
+    color: #533e29;
+}
+
+header {
+    text-align: center;
+    background: #fcf7ef;
+    padding: 32px 0 18px 0;
+    margin-bottom: 0;
+}
+
+h1 {
+    font-size: 2.1em;
+    color: #983d26;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.10em;
+}
+
+.romaji {
+    font-size: 0.7em;
+    color: #7d6651;
+    margin-left: 4px;
+    font-family: serif;
+}
+
+.page-banner {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 20px auto 26px auto;
+    display: block;
+    box-shadow: 0 6px 18px rgba(180,170,140,0.18);
+}
+
+.cards, .phrase-cards {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px 0 40px 0;
+}
+
+.card, .phrase-card {
+    background: #fff7ee;
+    border-radius: 16px;
+    padding: 18px 14px 22px 14px;
+    box-shadow: 0 4px 10px rgba(160,140,100,0.10);
+    text-align: center;
+    width: 260px;
+    margin-bottom: 20px;
+}
+
+.card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 9px;
+    margin-bottom: 11px;
+}
+
+.card h2, .phrase-card h2 {
+    font-size: 1.3em;
+    color: #983d26;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+}
+
+.card p, .phrase-card p {
+    font-size: 1em;
+    color: #6d5742;
+    margin: 0 0 5px 0;
+}
+
+@media (max-width: 900px) {
+    .cards, .phrase-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+    .card, .phrase-card {
+        width: 80%;
+        max-width: 400px;
+    }
+    .page-banner {
+        max-height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .card, .phrase-card {
+        width: 95%;
+        padding: 14px 10px 18px 10px;
+    }
+    .card h2, .phrase-card h2 {
+        font-size: 1.1em;
+    }
+    .card p, .phrase-card p {
+        font-size: 0.9em;
+    }
+    .page-banner {
+        max-height: 120px;
+        margin: 16px auto 20px auto;
+    }
+}
